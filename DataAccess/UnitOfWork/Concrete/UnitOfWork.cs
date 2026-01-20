@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DataAccess.UnitOfWork.Concrete
 {
-    public class UnitOfWork:IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
         private readonly ICategoryRepository _categoryRepository;
@@ -19,13 +19,13 @@ namespace DataAccess.UnitOfWork.Concrete
             _context = context;
         }
 
-        public ICategoryRepository CategoryRepository => _categoryRepository?? new EFCategoryRepository(_context);
+        public ICategoryRepository CategoryRepository => _categoryRepository ?? new EFCategoryRepository(_context);
 
-        public IProductRepository ProductRepository => _productRepository ??new EFProductRepository(_context);
+        public IProductRepository ProductRepository => _productRepository ?? new EFProductRepository(_context);
 
-        public async Task SaveAsync()
+        public async Task<int> SaveAsync()
         {
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
     }
 }

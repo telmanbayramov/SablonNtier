@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Entities.Concrete;
-using Entities.DTOs;
+using Entities.DTOs.CategoryDtos;
 using System;
 using System.Collections.Generic;
 using System.Text;

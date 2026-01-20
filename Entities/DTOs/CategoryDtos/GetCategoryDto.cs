@@ -1,15 +1,12 @@
-﻿using Core.Entities.Abstract;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.DTOs
+namespace Entities.DTOs.CategoryDtos
 {
-    public class GetAllCategoryDto:IDto
+    public class GetCategoryDto
     {
-        public Guid id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-
     }
 }

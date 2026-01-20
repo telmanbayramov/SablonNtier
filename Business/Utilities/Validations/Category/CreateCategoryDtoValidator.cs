@@ -1,4 +1,4 @@
-﻿using Entities.DTOs;
+﻿using Entities.DTOs.CategoryDtos;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
