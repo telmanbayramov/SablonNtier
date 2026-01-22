@@ -1,8 +1,8 @@
-using Business;
+﻿using Business;
 using DataAccess;
 using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
-
+using DotNetEnv;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,6 +11,12 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddDataAccessConfiguration(builder.Configuration);
 builder.Services.AddBusinessConfiguration(builder.Configuration);
+
+var test = Path.Combine(Directory.GetCurrentDirectory(), "..", ".env");
+DotNetEnv.Env.Load(test);
+
+builder.Configuration
+    .AddEnvironmentVariables();
 
 builder.Services.AddSwaggerGen(option =>
 {
